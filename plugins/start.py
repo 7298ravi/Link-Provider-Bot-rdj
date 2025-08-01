@@ -1,4 +1,3 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
 import asyncio
 import base64
 import time
@@ -131,8 +130,8 @@ async def start_command(client: Bot, message: Message):
         inline_buttons = InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("• ᴀʙᴏᴜᴛ", callback_data="about"),
-                 InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟs", callback_data="channels")],
-                [InlineKeyboardButton("• Close •", callback_data="close")]
+                 InlineKeyboardButton("ᴄʜᴀɴɴᴇʟs •", callback_data="channels")],
+                [InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")]
             ]
         )
         
@@ -411,7 +410,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         
         await query.edit_message_media(
             InputMediaPhoto(
-                "https://envs.sh/Wdj.jpg",
+                "https://envs.sh/g.jpg",
                 ABOUT_TXT
             ),
             reply_markup=InlineKeyboardMarkup([
@@ -428,15 +427,15 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                             CHANNELS_TXT
             ),
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton('• ʙᴀᴄᴋ', callback_data='start'), InlineKeyboardButton('home•', callback_data='setting')]
+                [InlineKeyboardButton('• ʙᴀᴄᴋ', callback_data='start'), InlineKeyboardButton('ʜᴏᴍᴇ •', callback_data='setting')]
             ]),
         )
     elif data in ["start", "home"]:
         inline_buttons = InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("• ᴀʙᴏᴜᴛ", callback_data="about"),
-                 InlineKeyboardButton("• ᴄʜᴀɴɴᴇʟs", callback_data="channels")],
-                [InlineKeyboardButton("• Close •", callback_data="close")]
+                 InlineKeyboardButton("ᴄʜᴀɴɴᴇʟs •", callback_data="channels")],
+                [InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")]
             ]
         )
         try:
