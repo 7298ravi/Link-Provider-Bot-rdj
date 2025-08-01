@@ -1,25 +1,29 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
 import os
 from os import environ
 import logging
 from logging.handlers import RotatingFileHandler
 
 # Recommended
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7777959436:AAHYn_0-WI0m7_BmiNvjSE-zkhADxuEyxTs")
-APP_ID = int(os.environ.get("APP_ID", "27165177"))
-API_HASH = os.environ.get("API_HASH", "b47d72c55ee136b38bb09d3d97e918e5")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+APP_ID = int(os.environ.get("APP_ID", ""))
+API_HASH = os.environ.get("API_HASH", "")
+
 # Main
-OWNER_ID = int(os.environ.get("OWNER_ID", "7932127170"))
-PORT = os.environ.get("PORT", "8080")
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+PORT = os.environ.get("PORT", "8022")
+
 # Database
-DB_URI = os.environ.get("DB_URI", "mongodb+srv://Animezzhindi:Animezz9305@animezzhindirequest.fxmg6.mong>
-DB_NAME = os.environ.get("DB_NAME", "luffybot")
-#Auto approve
-CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in enviro>
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\>
+DB_URI = os.environ.get("DATABASE_URL", "")
+DB_NAME = os.environ.get("DATABASE_NAME", "link")
+
+#Auto approve 
+CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get('CHAT_ID', '').split()] # dont change anything 
+TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\n\‣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Codeflix_Bots</b>")
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
+
 # Default
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
+
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 # Start pic
 START_PIC_FILE_ID = "https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg"
