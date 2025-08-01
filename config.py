@@ -29,7 +29,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
 START_PIC_FILE_ID = "https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg"
 START_IMG = "https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg"
 # Messages
-START_MSG = os.environ.get("START_MESSAGE", "<b>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴀɴɪᴍᴇ ᴄᴏᴍᴍᴜɴɪᴛʏ ɪɴᴅɪᴀ. ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ</b>"
+START_MSG = os.environ.get("START_MESSAGE", """<b>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴀɴɪᴍᴇ ᴄᴏᴍᴍᴜɴɪᴛʏ ɪɴᴅɪᴀ. ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ</b>""")
 HELP = os.environ.get("HELP_MESSAGE", "🙏🏻")
 ABOUT = os.environ.get("ABOUT_MESSAGE", "<b><blockquote expandable>This bot is developed by luffy @Luffy_Babu </blockquote>"
 ABOUT_TXT = """<b><blockquote expandable>›› ᴏᴡɴᴇʀ: <a href='https://t.me/Luffy_Babu'>𝖫ᴜғғʏ</a>
