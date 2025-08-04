@@ -96,7 +96,7 @@ async def start_command(client: Bot, message: Message):
             button = InlineKeyboardMarkup([[InlineKeyboardButton(button_text, url=invite.invite_link)]])
 
             wait_msg = await message.reply_text(
-                "<b>Please wait...</b>",
+                "<b></b>",
                 parse_mode=ParseMode.HTML
             )
             
@@ -152,58 +152,6 @@ async def start_command(client: Bot, message: Message):
 
 
 #=====================================================================================##
-# Don't Remove Credit @CodeFlix_Bots, @rohit_1888
-# Ask Doubt on telegram @CodeflixSupport
-
-#=====================================================================================##
-
-
-# Remove or comment out the old about/help callback handlers to avoid conflicts
-# @Bot.on_callback_query(filters.regex("help"))
-# async def help_callback(client: Bot, callback_query):
-#     inline_buttons = InlineKeyboardMarkup(
-#         [
-#             [InlineKeyboardButton("• ᴄʟᴏsᴇ", callback_data="close")],
-#             InlineKeyboardButton("ʜᴏᴍᴇ •", callback_data="home")],
-#         ]
-#     )
-
-#     await callback_query.answer()
-#     current_text = callback_query.message.text.html if callback_query.message.text else ""
-#     if current_text != CHANNELS_TXT or callback_query.message.reply_markup != inline_buttons:
-#         try:
-#             await callback_query.message.edit_text(
-#                 CHANNELS_TXT,
-#                 reply_markup=inline_buttons,
-#                 parse_mode=ParseMode.HTML
-#             )
-#         except Exception as e:
-#             print(f"Error editing help message: {e}")
-#     else:
-#         print("Skipped edit: Message content unchanged")
-
-# @Bot.on_callback_query(filters.regex("about"))
-# async def about_callback(client: Bot, callback_query):
-#     inline_buttons = InlineKeyboardMarkup(
-#         [
-#             [InlineKeyboardButton("• ᴄʟᴏsᴇ", callback_data="close")],
-#             InlineKeyboardButton("ʜᴏᴍᴇ •", callback_data="home")],
-#         ]
-#     )
-
-#     await callback_query.answer()
-#     current_text = callback_query.message.text.html if callback_query.message.text else ""
-#     if current_text != ABOUT or callback_query.message.reply_markup != inline_buttons:
-#         try:
-#             await callback_query.message.edit_text(
-#                 ABOUT,
-#                 reply_markup=inline_buttons,
-#                 parse_mode=ParseMode.HTML
-#             )
-#         except Exception as e:
-#             print(f"Error editing about message: {e}")
-#     else:
-#         print("Skipped edit: Message content unchanged")
 
 @Bot.on_callback_query(filters.regex("close"))
 async def close_callback(client: Bot, callback_query):
@@ -235,7 +183,7 @@ async def check_sub_callback(client: Bot, callback_query: CallbackQuery):
             parse_mode=ParseMode.HTML
         )
 
-WAIT_MSG = "<b>Processing...</b>"
+WAIT_MSG = "<b></b>"
 
 REPLY_ERROR = "<code>Use this command as a reply to any Telegram message without any spaces.</code>"
 
