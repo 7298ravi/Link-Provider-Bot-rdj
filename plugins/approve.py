@@ -61,8 +61,7 @@ async def autoapprove(client, message: ChatJoinRequest):
         sent_msg = await client.send_message(  
             chat_id=user.id,  
             text=caption,  
-            reply_markup=markup,  
-            parse_mode="HTML"  
+            reply_markup=markup,    
         )  
   
         # 🕒 Wait for 5 minutes (300 seconds) and delete the message  
