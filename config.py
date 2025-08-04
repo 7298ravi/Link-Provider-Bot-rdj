@@ -33,7 +33,7 @@ START_MSG = os.environ.get("START_MESSAGE", "<b>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛ�
 HELP = os.environ.get("HELP_MESSAGE", "<b>🙏🏻</b>")
 ABOUT = os.environ.get("ABOUT_MESSAGE", "<b><blockquote expandable>This bot is developed by to securely share Telegram channel links with temporary invite links, protecting your channels from copyright issues.</b>")
 
-ABOUT_TXT = """<b><blockquote>›› ›› ᴘʀᴏᴍᴏ : <a href='https://t.me/ACI_SUPPORT_BOT'>ᴏᴡɴᴇʀ</a></b></blockquote>"""
+ABOUT_TXT = """<b><blockquote>››ᴘʀᴏᴍᴏ : <a href='https://t.me/ACI_SUPPORT_BOT'>ᴏᴡɴᴇʀ</a></b></blockquote>"""
 
 CHANNELS_TXT = """<b><blockquote expandable>›› ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/Anime_Community_India'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
 ›› ᴀɴɪᴍᴇ ᴍᴏᴠɪᴇ: <a href='https://t.me/+zdzoF1YaqeViZTJl'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
