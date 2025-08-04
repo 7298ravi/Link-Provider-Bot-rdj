@@ -58,7 +58,7 @@ async def autoapprove(client, message: ChatJoinRequest):
         markup = InlineKeyboardMarkup(buttons)
         caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
         
-        sent_msg = await client.send_photo(
+        sent_msg = await client.send_video(
             chat_id=user.id,
             video='https://envs.sh/EnV.mp4',
             caption=caption,
