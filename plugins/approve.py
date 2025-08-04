@@ -63,7 +63,6 @@ async def autoapprove(client, message: ChatJoinRequest):
             photo='https://graph.org/file/2a3bdf158d2d876c474a1-8566a8ace3bc440d18.jpg',
             caption=caption,
             reply_markup=markup
-            message_effect_id=5104841245755180586
         )
 
         await asyncio.sleep(60)
