@@ -65,7 +65,7 @@ async def autoapprove(client, message: ChatJoinRequest):
         )
 
         # 🕒 Wait for 5 minutes and delete the message
-        await asyncio.sleep(10)
+        await asyncio.sleep(300)
         try:
             await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)
         except Exception as e:
