@@ -96,7 +96,7 @@ async def start_command(client: Bot, message: Message):
             button = InlineKeyboardMarkup([[InlineKeyboardButton(button_text, url=invite.invite_link)]])
 
             wait_msg = await message.reply_text(
-                "<b></b>",
+                "<b>.</b>",
                 parse_mode=ParseMode.HTML
             )
             
@@ -183,7 +183,7 @@ async def check_sub_callback(client: Bot, callback_query: CallbackQuery):
             parse_mode=ParseMode.HTML
         )
 
-WAIT_MSG = "<b></b>"
+WAIT_MSG = "<b>.</b>"
 
 REPLY_ERROR = "<code>Use this command as a reply to any Telegram message without any spaces.</code>"
 
