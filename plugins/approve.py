@@ -48,28 +48,28 @@ async def autoapprove(client, message: ChatJoinRequest):
         pass
 
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
-    
-    if APPROVED == "on":
-        invite_link = await client.export_chat_invite_link(chat.id)
-        buttons = [
-            [InlineKeyboardButton(f'• ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ •', url=invite_link)]
-        ]
-        markup = InlineKeyboardMarkup(buttons)
-        caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
-        
-        sent_msg = await client.send_photo(
-            chat_id=user.id,
-            photo='https://envs.sh/g.jpg',
-            caption=caption,
-            reply_markup=markup
-        )
 
-        # 🕒 Wait for 5 minutes and delete the message
-        await asyncio.sleep(300)
-        try:
-            await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)
-        except Exception as e:
-            print(f"Failed to delete message: {e}")
+if APPROVED == "on":
+    invite_link = await client.export_chat_invite_link(chat.id)
+    buttons = [
+        [InlineKeyboardButton(f'• ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ •', url=invite_link)]
+    ]
+    markup = InlineKeyboardMarkup(buttons)
+    caption = f"<b>ʜᴇʏ {user.mention()},\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
+
+    sent_msg = await client.send_message(
+        chat_id=user.id,
+        text=caption,
+        reply_markup=markup,
+        parse_mode="html"
+    )
+
+    # 🕒 Wait for 5 minutes and delete the message
+    await asyncio.sleep(300)
+    try:
+        await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)
+    except Exception as e:
+        print(f"Failed to delete message: {e}")
 
 @Client.on_message(filters.command("reqtime") & is_owner_or_admin)
 async def set_reqtime(client, message: Message):
