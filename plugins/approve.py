@@ -18,59 +18,61 @@ async def get_user_client():
         await user_client.start()
     return user_client
 
-@Client.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
-async def autoapprove(client, message: ChatJoinRequest):
-    global AUTO_APPROVE_ENABLED
+@Client.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))  
+async def autoapprove(client, message: ChatJoinRequest):  
+    global AUTO_APPROVE_ENABLED  
+  
+    if not AUTO_APPROVE_ENABLED:  
+        return  
+  
+    chat = message.chat  
+    user = message.from_user  
+  
+    # check if approval is off for this channel  
+    if await is_approval_off(chat.id):  
+        print(f"Auto-approval is OFF for channel {chat.id}")  
+        return  
+  
+    print(f"{user.first_name} requested to join {chat.title}")  
+      
+    await asyncio.sleep(APPROVAL_WAIT_TIME)  
+  
+    # Check if user is already a participant before approving  
+    try:  
+        member = await client.get_chat_member(chat.id, user.id)  
+        if member.status in ["member", "administrator", "creator"]:  
+            print(f"User {user.id} is already a participant of {chat.id}, skipping approval.")  
+            return  
+    except UserNotParticipant:  
+        # User is not a member, handle accordingly  
+        pass  
+  
+    # Move this inside the async function
+    await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)  
+  
+    if APPROVED == "on":  
+        invite_link = await client.export_chat_invite_link(chat.id)  
+        buttons = [  
+            [InlineKeyboardButton(f'• ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ •', url=invite_link)]  
+        ]  
+        markup = InlineKeyboardMarkup(buttons)  
+        caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote>ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote></b>"  
+  
+        sent_msg = await client.send_message(  
+            chat_id=user.id,  
+            text=caption,  
+            reply_markup=markup,  
+            parse_mode="HTML"  
+        )  
+  
+        # 🕒 Wait for 5 minutes (300 seconds) and delete the message  
+        await asyncio.sleep(300)  
+        try:  
+            await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)  
+        except Exception as e:  
+            print(f"Failed to delete message: {e}")  
+          
 
-    if not AUTO_APPROVE_ENABLED:
-        return
-
-    chat = message.chat
-    user = message.from_user
-
-    # check agr approval of hai us chnl m
-    if await is_approval_off(chat.id):
-        print(f"Auto-approval is OFF for channel {chat.id}")
-        return
-
-    print(f"{user.first_name} requested to join {chat.title}")
-    
-    await asyncio.sleep(APPROVAL_WAIT_TIME)
-
-    # Check if user is already a participant before approving
-    try:
-        member = await client.get_chat_member(chat.id, user.id)
-        if member.status in ["member", "administrator", "creator"]:
-            print(f"User {user.id} is already a participant of {chat.id}, skipping approval.")
-            return
-    except UserNotParticipant:
-        # User is not a member, handle accordingly
-        pass
-
-await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
-
-if APPROVED == "on":
-    invite_link = await client.export_chat_invite_link(chat.id)
-    buttons = [
-        [InlineKeyboardButton(f'• ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ •', url=invite_link)]
-    ]
-    markup = InlineKeyboardMarkup(buttons)
-    caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote>ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote></b>"
-
-    sent_msg = await client.send_message(
-        chat_id=user.id,
-        text=caption,
-        reply_markup=markup,
-        parse_mode="HTML"
-    )
-
-    # 🕒 Wait for 5 minutes (300 seconds) and delete the message
-    await asyncio.sleep(300)
-    try:
-        await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)
-    except Exception as e:
-        print(f"Failed to delete message: {e}")
-        
 @Client.on_message(filters.command("reqtime") & is_owner_or_admin)
 async def set_reqtime(client, message: Message):
     global APPROVAL_WAIT_TIME
