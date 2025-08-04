@@ -8,7 +8,7 @@ from database.database import set_approval_off, is_approval_off
 from helper_func import *
 
 # Default settings
-APPROVAL_WAIT_TIME = 5  # seconds 
+APPROVAL_WAIT_TIME = 1  # seconds 
 AUTO_APPROVE_ENABLED = True  # Toggle for enabling/disabling auto approval 
 
 async def get_user_client():
