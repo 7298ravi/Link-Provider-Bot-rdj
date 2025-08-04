@@ -56,8 +56,7 @@ async def autoapprove(client, message: ChatJoinRequest):
             ]
             markup = InlineKeyboardMarkup(buttons)
             caption = (
-                f"<b>ʜᴇʏ {user.mention()},\n"
-                f"<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote></b>"
+                f"<b>ʜᴇʏ {user.mention()},\n <blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote></b>"
             )
 
             sent_msg = await client.send_message(
