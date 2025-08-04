@@ -57,12 +57,19 @@ async def autoapprove(client, message: ChatJoinRequest):
         markup = InlineKeyboardMarkup(buttons)
         caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
         
-        await client.send_photo(
+        sent_msg = await client.send_photo(
             chat_id=user.id,
             photo='https://envs.sh/g.jpg',
             caption=caption,
             reply_markup=markup
         )
+
+        # 🕒 Wait for 5 minutes and delete the message
+        await asyncio.sleep(10)
+        try:
+            await client.delete_messages(chat_id=user.id, message_ids=sent_msg.id)
+        except Exception as e:
+            print(f"Failed to delete message: {e}")
 
 @Client.on_message(filters.command("reqtime") & is_owner_or_admin)
 async def set_reqtime(client, message: Message):
