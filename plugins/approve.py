@@ -63,6 +63,7 @@ async def autoapprove(client, message: ChatJoinRequest):
             video='https://envs.sh/EnV.mp4',
             caption=caption,
             reply_markup=markup
+            message_effect_id=5104841245755180586
         )
 
         await asyncio.sleep(60)
