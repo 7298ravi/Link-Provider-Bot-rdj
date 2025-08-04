@@ -61,7 +61,7 @@ if APPROVED == "on":
         chat_id=user.id,
         text=caption,
         reply_markup=markup,
-        parse_mode="html"
+        parse_mode="HTML"
     )
 
     # 🕒 Wait for 5 minutes (300 seconds) and delete the message
