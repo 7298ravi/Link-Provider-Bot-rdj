@@ -1,4 +1,3 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
 import os
 import asyncio
 from config import *
@@ -53,15 +52,14 @@ async def autoapprove(client, message: ChatJoinRequest):
     if APPROVED == "on":
         invite_link = await client.export_chat_invite_link(chat.id)
         buttons = [
-            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/Codeflix_Bots')],
-            [InlineKeyboardButton(f'• ᴊᴏɪɴ {chat.title} •', url=invite_link)]
+            [InlineKeyboardButton(f'• ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ •', url=invite_link)]
         ]
         markup = InlineKeyboardMarkup(buttons)
-        caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ _{chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
+        caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
         
         await client.send_photo(
             chat_id=user.id,
-            photo='https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg',
+            photo='https://envs.sh/g.jpg',
             caption=caption,
             reply_markup=markup
         )
