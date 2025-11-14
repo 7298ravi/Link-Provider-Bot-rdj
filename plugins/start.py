@@ -44,7 +44,12 @@ async def start_command(client: Bot, message: Message):
     #             reply_markup=subscription_buttons,
     #             parse_mode=ParseMode.HTML
      #        )
+    # Always define mention first
+    user = message.from_user
+    mention = f"<a href='tg://user?id={user.id}'>{user.first_name}</a>"
 
+
+    
     text = message.text
     if len(text) > 7:
         try:
