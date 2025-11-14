@@ -26,7 +26,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 # Start pic
-START_PIC = "https://envs.sh/g.jpg"
+START_PIC = "https://envs.sh/6Yx.jpg"
 
 # Messages
 START_MSG = os.environ.get("START_MESSAGE", "<b><blockquote>⚡ Hᴇʏ, {mention} ~</blockquote>\n     <b>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴀɴɪᴍᴇ ᴛʜʀɪʟʟᴇʀ,      ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ.</b>")
