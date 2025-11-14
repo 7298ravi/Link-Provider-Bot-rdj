@@ -111,11 +111,12 @@ async def start_command(client: Bot, message: Message):
             print(f"Decoding error: {e}")
     else:
         inline_buttons = InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("• ᴀʙᴏᴜᴛ", callback_data="about"),
-                 InlineKeyboardButton("ᴄʜᴀɴɴᴇʟs •", callback_data="channels")],
-                [InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")]
-            ]
+    [
+        [
+            InlineKeyboardButton("• ᴀʙᴏᴜᴛ •", callback_data="about"),
+            InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
+        ]
+    ]
         )
         
         try:
@@ -365,8 +366,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         inline_buttons = InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("• ᴀʙᴏᴜᴛ", callback_data="about"),
-                 InlineKeyboardButton("ᴄʜᴀɴɴᴇʟs •", callback_data="channels")],
-                [InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")]
+                 InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")]
             ]
         )
         try:
