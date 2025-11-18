@@ -29,7 +29,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
 START_PIC = "https://envs.sh/6Yx.jpg"
 
 # Messages
-START_MSG = os.environ.get("START_MESSAGE", "<b>ᴡᴇʟᴄᴏᴍᴇ ɪ ᴀᴍ ᴀ ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ.</b>")
+START_MSG = os.environ.get("START_MESSAGE", "<b>ɪ ᴀᴍ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ.</b>")
 HELP = os.environ.get("HELP_MESSAGE", "<b>🙏🏻</b>")
 ABOUT = os.environ.get("ABOUT_MESSAGE", "<b><blockquote expandable>This bot is developed by to securely share Telegram channel links with temporary invite links, protecting your channels from copyright issues.</b>")
 
