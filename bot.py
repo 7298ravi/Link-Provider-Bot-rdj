@@ -9,7 +9,7 @@ from plugins import web_server
 import pyrogram.utils
 from aiohttp import web
 
-pyrogram.utils.MIN_CHANNEL_ID = -1009147483647
+pyrogram.utils.MIN_CHANNEL_ID = -1002182998786
 
 name = """
 Links Sharing Started
@@ -18,12 +18,12 @@ Links Sharing Started
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            name="Bot",
-            api_hash=API_HASH,
-            api_id=APP_ID,
+            name="Luffy_File_Stores_Bot",
+            api_hash=e43501d442b2973d5bbda6d158a83e0a,
+            api_id=25917323,
             plugins={"root": "plugins"},
-            workers=TG_BOT_WORKERS,
-            bot_token=TG_BOT_TOKEN,
+            workers=big 3 ,
+            bot_token=8480830514:AAFbZuSL2K-p2brkhit0VZL0Hl1s_XXzxy4,
         )
         self.LOGGER = LOGGER
 
