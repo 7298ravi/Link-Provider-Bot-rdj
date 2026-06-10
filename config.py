@@ -4,12 +4,12 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 # Recommended
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", ""))
-API_HASH = os.environ.get("API_HASH", "")
+TG_BOT_TOKEN = os.environ.get("8480830514:AAFbZuSL2K-p2brkhit0VZL0Hl1s_XXzxy4", "")
+APP_ID = int(os.environ.get("25917323", ""))
+API_HASH = os.environ.get("e43501d442b2973d5bbda6d158a83e0a", "")
 
 # Main
-OWNER_ID = int(os.environ.get("OWNER_ID", "8110231942"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "7390871779"))
 PORT = os.environ.get("PORT", "8080")
 
 # Database
@@ -42,19 +42,19 @@ USER_REPLY_TEXT = "⚠️ ғᴜᴄᴋ ʏᴏᴜ, ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ
 
 # Logging
 LOG_FILE_NAME = "links-sharingbot.txt"
-DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "")) # Channel where user links are stored
+DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "-1002182998786")) # Channel where user links are stored
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 try:
     ADMINS = []
-    for x in (os.environ.get("ADMINS", "7932127170 8110231942").split()):
+    for x in (os.environ.get("ADMINS", "7390871779").split()):
         ADMINS.append(int(x))
 except ValueError:
     raise Exception("Your Admins list does not contain valid integers.")
 
 # Admin == OWNER_ID
 ADMINS.append(OWNER_ID)
-ADMINS.append(7932127170)
+ADMINS.append(7390871779)
 
 
 logging.basicConfig(
